@@ -19,6 +19,8 @@
       <button *ngIf="!gameRunning" (click)="reset()">Reset</button>
 
       <input type="color" [(ngModel)]="userColorHex" name="userColor" (ngModelChange)="updateColorRgb()">
+
+      <button *ngIf="!gameRunning" (click)="print()">Print Cells</button>
     </div>
   </div>
 

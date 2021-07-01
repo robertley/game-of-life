@@ -19,7 +19,12 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+
+    // robbie added
+
+    "resolveJsonModule": true,
+    "esModuleInterop": true  
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

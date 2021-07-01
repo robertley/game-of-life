@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Cell, Color } from './interfaces/cell.interface';
 import { cloneDeep } from 'lodash';
+import { saveAs } from 'file-saver';
+import cellState1 from './objects/cellState1.json';
 
 @Component({
   selector: 'app-root',
@@ -27,14 +29,15 @@ export class AppComponent implements OnInit {
   windowIntervalObject: any;
   
   constructor() {
-    this.cells = new Array(this.cellAmtX);
-    for (let i = 0; i < this.cellAmtX; i++) {
-      let row = new Array(this.cellAmtX);
-      for (let j = 0; j < this.cellAmtY; j++) {
-          row[j] = this.createCell();
-      }
-      this.cells[i] = row;
-    }
+    // this.cells = new Array(this.cellAmtX);
+    // for (let i = 0; i < this.cellAmtX; i++) {
+    //   let row = new Array(this.cellAmtX);
+    //   for (let j = 0; j < this.cellAmtY; j++) {
+    //       row[j] = this.createCell();
+    //   }
+    //   this.cells[i] = row;
+    // }
+    this.cells = cellState1 as Cell[][];
   }
 
   ngOnInit() {
@@ -235,6 +238,12 @@ export class AppComponent implements OnInit {
     } catch {
       return;
     }
+  }
+
+  print() {
+    console.log(JSON.stringify(this.cells))
+    let blob = new Blob([JSON.stringify(this.cells)], { type: "text/plain;charset=utf-8" });
+    saveAs(blob, "cell-code.txt");
   }
 }
 
