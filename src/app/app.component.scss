@@ -1,0 +1,31 @@
+$cell-height: 15px;
+
+#mainContainer {
+    width: max-content;
+}
+
+.cell-row {
+    height: $cell-height;
+}
+
+.cell {
+    display: inline-block;
+    width: $cell-height;
+    height: $cell-height;
+    border: 1px solid rgb(34, 34, 34);
+}
+
+#UIContainer {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    bottom: 0;
+    background-color: gray;
+    width: 100vw;
+    border-top: 1px cyan solid;
+}
+
+#frames {
+    margin-right: 4em;
+}
